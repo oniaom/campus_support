@@ -1,0 +1,41 @@
+.title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.navbar_left
+{
+    margin-left: 2vw;
+}
+
+.navbar_right {
+    width: 100vw;
+    margin: auto;
+}
+
+.navigation_decoration {
+    text-decoration: none;
+    font-weight: bold;
+    color: blue;
+}
+
+.accordion_centered
+{
+    width: 50vw; 
+    margin:auto;
+}
+
+.list_centered
+{
+    width: 20vw; 
+    margin:auto;
+}
+
+.search_button {
+    margin: auto;
+}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Search
+{% endblock %}
+{% block body %}
+
+{% include "search_box.html "%}
+
+<table class="table accordion_centered">
+    <thead>
+        <tr>
+            <th scope="col">Matching Title</th>
+            <th scope="col">Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.card_title }}</td>
+            <td>
+                <a href="{{ item.location }}">{{ item.location }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script src="{{ url_for('static', filename='js/search_box_on_input.js')}}"></script>
+
+{% endblock %}
