@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Outlook
+{% endblock %}
+
+{%block head %}
+<!-- Include our button javascript -->
+<script src="{{ url_for('static', filename='js/button_text_changer.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">
+    Outlook/Mail Issues
+</h1>
+
+<ul class="list-inline centered">
+    <li class="list-inline-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">More Information Required</h5>
+                <img src="{{ url_for('static', filename='images/More_Information_Required.png')}}" class="card-img-top"
+                    alt="Screenshot of Outlook showing More Information Required">
+                <p class="card-text">If you're seeing this screen when you try to open your E-Mail, it means you need to
+                    set-up <strong>Microsoft Authenticator</strong>.</p>
+                <p>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Show Solution
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <a href="{{ url_for('static', filename='/videos/outlook_authenticator_video.mp4') }}">
+                            Click here for a video tutorial
+                        </a>
+                        <a href="/guides/outlook_authenticator">
+                            Click here for a written tutorial
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="list-inline-item">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <img src="..." class="card-img-top" alt="...">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+{% endblock %}

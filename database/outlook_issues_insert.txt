@@ -1,0 +1,4 @@
+﻿insert into issues (card_title,image,alt,card_text,card_body_href,card_body_text) 
+values (
+"card_title","image","alt","card_text","card_body_href","card_body_text"
+);
