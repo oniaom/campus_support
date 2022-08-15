@@ -1,0 +1,10 @@
+CREATE TABLE index_contents (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	href TEXT,
+	image TEXT,
+	alt TEXT,
+	title TEXT
+);
+
+INSERT INTO index_contents (href, image, alt, title)
+VALUES ("outlook", "images/outlook_logo.webp", "Outlook logo", "Account/Email/Outlook Issues");
