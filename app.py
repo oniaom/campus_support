@@ -14,6 +14,8 @@ def index():
 def test():
     return render_template("test.html")
 
+# TODO: Combine search and search_plain. Perhaps use a variable to detirmine which template should be rendered?
+
 
 @app.route('/search_plain')
 def search_plain():
@@ -78,7 +80,8 @@ def get_matching_items_from_database(items: list, search_query: str):
                         # append id
                         found = True
                         result.append({"card_title": specific_database["card_title"],
-                                       "location": specific_database["location"][:-5]})  # [:-5] removes the .html
+                                       "location": specific_database["location"][:-5], # [:-5] removes the .html
+                                       "description": specific_database["card_text"]}) 
                         # TODO: once i append, go to the next database
                 else:
                     continue
