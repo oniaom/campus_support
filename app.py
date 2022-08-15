@@ -32,7 +32,7 @@ def search():
     # For someone to access this route directly, it means we want to load the whole thing
     search_query = request.args.get('q')
     if search_query is not None and search_query.strip() != '':
-    # Get stuff from our databases
+        # Get stuff from our databases
         items: list = get_items_from_database()
     # filter based on user search query
         result: list = get_matching_items_from_database(items, search_query)
@@ -84,6 +84,7 @@ def get_matching_items_from_database(items: list, search_query: str):
                     continue
             found = False
     return result
+
 
 @app.route('/resources/outlook')
 def outlook():
