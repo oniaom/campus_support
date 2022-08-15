@@ -1,0 +1,12 @@
+<table class="table accordion_centered">
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.card_title }}</td>
+            <td>
+                <a href="{{ item.location }}">{{ item.location }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

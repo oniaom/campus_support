@@ -1,0 +1,22 @@
+{% block searchbox %}
+
+<!-- Search Box -->
+<form class="centered" action="/search">
+    {% if override is defined %}
+    <input type="text" name="q" id="q" value="{{ override }}" autofocus>
+
+    <!-- Set cursor to the end -->
+    <script>
+        box = document.getElementById('q');
+        const length = box.value.length;
+        box.setSelectionRange(length, length);
+    </script>
+    
+    {% else %} 
+    <input type="text" name="q" id="q" placeholder="Search for help" autofocus>
+    {% endif %}
+    <input type="submit">
+</form>
+<!-- End of Search Box -->
+
+{% endblock %}
