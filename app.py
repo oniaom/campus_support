@@ -5,9 +5,17 @@ import sqlite3
 app = Flask(__name__)
 
 
+def open_specific_database(db_name: str, query: str) -> list[dict]:
+    database = sqlite3.connect(f"database/{db_name}")
+    database.row_factory = sqlite3.Row
+    cursor = database.cursor()
+    cursor.execute(f"SELECT * FROM {query}")
+    return [dict(row) for row in cursor.fetchall()]
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    items: list[dict] = open_specific_database('index.db', "index_contents")
+    return render_template("index.html", items=items)
 
 
 @app.route('/test')
