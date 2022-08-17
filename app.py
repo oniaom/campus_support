@@ -112,7 +112,7 @@ def outlook():
     items = open_specific_database("outlook_issues.db", "issues")
 
     # Render outlook.html with the items from the database
-    return render_template("resources/outlook.html", items=list(items))
+    return render_template("resources/outlook.html", items=items)
 
 
 @app.route('/guides/outlook_authenticator')
