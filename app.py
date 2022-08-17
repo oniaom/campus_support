@@ -37,10 +37,10 @@ def search():
     search_query = request.args.get('q')
     display_plain = request.args.get('plain')
 
-    # Assuming that the user searched for something 
+    # Assuming that the user searched for something
     if search_query is not None and search_query.strip() != '':
         # Get stuff from our databases
-        items: list = get_items_from_database()
+        items: list = get_items_from_database_with_location()
         # filter based on user search query
         result: list = get_matching_items_from_database(items, search_query)
 
@@ -58,13 +58,14 @@ def search():
     return render_template("search.html")
 
 
-def get_query_with_location(filename: str, query: str, location: str) ->list:
+def get_query_with_location(filename: str, query: str, location: str) -> list:
     result = open_specific_database(filename, query)
     for item in result:
         item["location"] = f"{location}"
     return result
 
-def get_items_from_database() -> list:
+
+def get_items_from_database_with_location() -> list:
     # Open database/* and do "select * from ?"
     # Where ? is found under database_select_index.txt
     select_queries: list = []
@@ -73,8 +74,9 @@ def get_items_from_database() -> list:
         for line in index:
             # Separate by space
             filename, query, location = line.split(' ')
-            # Call our function to open the database 
-            select_queries.append(get_query_with_location(filename,query,location))
+            # Call our function to open the database
+            select_queries.append(
+                get_query_with_location(filename, query, location))
 
     return select_queries
 
