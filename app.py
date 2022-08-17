@@ -12,8 +12,10 @@ def open_specific_database(db_name: str, query: str) -> list:
     cursor.execute(f"SELECT * FROM {query}")
     return [dict(row) for row in cursor.fetchall()]
 
+
 @app.route("/")
 def index():
+    # Home page; Gets its items from database/index.db
     items: list = open_specific_database('index.db', "index_contents")
     return render_template("index.html", items=items)
 
@@ -22,31 +24,33 @@ def index():
 def test():
     return render_template("test.html")
 
-# TODO: Combine search and search_plain. Perhaps use a variable to detirmine which template should be rendered?
-
-
-@app.route('/search_plain')
-def search_plain():
-    search_query = request.args.get('q')
-    if search_query is not None and search_query != '':
-        # Get stuff from our databases
-        items: list = get_items_from_database()
-        # filter based on user search query
-        result: list = get_matching_items_from_database(items, search_query)
-        return render_template("search_plain.html", items=result)
-    return render_template("search_plain.html")
+# TODO: Combine search and search_plain.
+# Perhaps use a variable to detirmine which template should be rendered?
 
 
 @app.route('/search', methods=["POST", "GET"])
 def search():
     # For someone to access this route directly, it means we want to load the whole thing
     search_query = request.args.get('q')
+    display_plain = request.args.get('plain')
     if search_query is not None and search_query.strip() != '':
         # Get stuff from our databases
         items: list = get_items_from_database()
-    # filter based on user search query
+        # filter based on user search query
         result: list = get_matching_items_from_database(items, search_query)
-        return render_template("search.html", items=result, override=search_query)
+
+        # If we came here by searching/clicking on search from navbar, then put the search query on the search box
+        if display_plain != "true":
+            return render_template("search.html", items=result, override=search_query)
+
+        # If not, we don't need to
+        else:
+            return render_template("search_plain.html", items=result)
+            
+    # Fixes a bug where when you remove the query from the search box it re-renders search.html
+    elif display_plain == "true":
+        return render_template("search_plain.html")
+
     return render_template("search.html")
 
 
@@ -88,8 +92,9 @@ def get_matching_items_from_database(items: list, search_query: str):
                         # append id
                         found = True
                         result.append({"card_title": specific_database["card_title"],
-                                       "location": specific_database["location"][:-5], # [:-5] removes the .html
-                                       "description": specific_database["card_text"]}) 
+                                       # [:-5] removes the .html
+                                       "location": specific_database["location"][:-5],
+                                       "description": specific_database["card_text"]})
                         # TODO: once i append, go to the next database
                 else:
                     continue
