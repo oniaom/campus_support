@@ -3,18 +3,19 @@
 <!-- Search Box -->
 <form class="centered" action="/search">
     {% if override is defined %}
-    <input type="text" name="q" id="q" value="{{ override }}" autofocus>
+    <input type="text" name="q" id="q" value="{{ override }}" autofocus autocomplete="off">
 
     <!-- Set cursor to the end -->
     <script>
-        box = document.getElementById('q');
+        let box = document.getElementById('q');
         const length = box.value.length;
         box.setSelectionRange(length, length);
     </script>
     
     {% else %} 
-    <input type="text" name="q" id="q" placeholder="Search for help" autofocus>
+    <input type="text" name="q" id="q" placeholder="Search for help" autofocus autocomplete="off">
     {% endif %}
+    
     <input type="submit" value="Search">
 </form>
 <!-- End of Search Box -->
