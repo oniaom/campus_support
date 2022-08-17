@@ -42,11 +42,9 @@ def search():
         # If we came here by searching/clicking on search from navbar, then put the search query on the search box
         if display_plain != "true":
             return render_template("search.html", items=result, override=search_query)
-
         # If not, we don't need to
-        else:
-            return render_template("search_plain.html", items=result)
-            
+        return render_template("search_plain.html", items=result)
+
     # Fixes a bug where when you remove the query from the search box it re-renders search.html
     elif display_plain == "true":
         return render_template("search_plain.html")
