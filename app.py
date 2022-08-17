@@ -29,9 +29,6 @@ def index():
 def test():
     return render_template("test.html")
 
-# TODO: Combine search and search_plain.
-# Perhaps use a variable to detirmine which template should be rendered?
-
 
 @app.route('/search', methods=["POST", "GET"])
 def search():
@@ -39,6 +36,8 @@ def search():
     # Also gets called by our js for real time results (calls plain=true in args)
     search_query = request.args.get('q')
     display_plain = request.args.get('plain')
+
+    # Assuming that the user searched for something 
     if search_query is not None and search_query.strip() != '':
         # Get stuff from our databases
         items: list = get_items_from_database()
@@ -59,6 +58,12 @@ def search():
     return render_template("search.html")
 
 
+def get_query_with_location(filename: str, query: str, location: str) ->list:
+    result = open_specific_database(filename, query)
+    for item in result:
+        item["location"] = f"{location}"
+    return result
+
 def get_items_from_database() -> list:
     # Open database/* and do "select * from ?"
     # Where ? is found under database_select_index.txt
@@ -68,18 +73,8 @@ def get_items_from_database() -> list:
         for line in index:
             # Separate by space
             filename, query, location = line.split(' ')
-            database = sqlite3.connect(f"database/{filename}")
-            database.row_factory = sqlite3.Row
-            cursor = database.cursor()
-            cursor.execute(f"SELECT * FROM {query}")
-            result = []
-
-            for row in cursor.fetchall():
-                test = dict(row)
-                test["location"] = f"{location}"
-                result.append(test)
-
-            select_queries.append(result)
+            # Call our function to open the database 
+            select_queries.append(get_query_with_location(filename,query,location))
 
     return select_queries
 
