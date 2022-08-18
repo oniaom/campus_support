@@ -76,7 +76,13 @@ def get_items_from_database_with_location() -> list:
     return select_queries
 
 
-# TODO: fix this spaghetti code by creating functions instead...
+def search_current_database(specific_database: dict, search_query: str) -> bool:
+    for value in specific_database.values():
+        if search_query.lower() in str(value).lower():
+            return True
+    return False
+
+
 def get_matching_items_from_database(items: list, search_query: str):
     result = []
     found = False
@@ -84,16 +90,12 @@ def get_matching_items_from_database(items: list, search_query: str):
         # If item contains search_query, append
         # Items is a list of a list of a dict still
         for specific_database in all_databases:
-            for value in specific_database.values():
-                if not found:
-                    if search_query.lower() in str(value).lower():
-                        # append id
-                        found = True
-                        result.append({"card_title": specific_database["card_title"],
-                                       # [:-5] removes the .html
-                                       "location": specific_database["location"][:-5],
-                                       "description": specific_database["card_text"]})
-            found = False
+            found = search_current_database(specific_database, search_query)
+            if found:
+                result.append({"card_title": specific_database["card_title"],
+                               # [:-5] removes the .html
+                               "location": specific_database["location"][:-5],
+                               "description": specific_database["card_text"]})
     return result
 
 
