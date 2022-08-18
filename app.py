@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect
 import sqlite3
 
@@ -25,11 +24,6 @@ def index():
     return render_template("index.html", items=items)
 
 
-@app.route('/test')
-def test():
-    return render_template("test.html")
-
-
 @app.route('/search', methods=["POST", "GET"])
 def search():
     # Handles searching through our database for matching strings.
@@ -45,10 +39,11 @@ def search():
         result: list = get_matching_items_from_database(items, search_query)
 
         # If we came here by searching/clicking on search from navbar, then put the search query on the search box
+        # We also want to display the whole page as opposed to just the search results
         if display_plain != "true":
             return render_template("search.html", items=result, override=search_query)
 
-        # If not, we don't need to. We should also render the plain version at this point
+        # If not, we should render the plain version without overriding the search box
         return render_template("search_plain.html", items=result)
 
     # Fixes a bug where when you remove the query from the search box it re-renders search.html
@@ -81,6 +76,7 @@ def get_items_from_database_with_location() -> list:
     return select_queries
 
 
+# TODO: fix this spaghetti code by creating functions instead...
 def get_matching_items_from_database(items: list, search_query: str):
     result = []
     found = False
@@ -97,8 +93,6 @@ def get_matching_items_from_database(items: list, search_query: str):
                                        # [:-5] removes the .html
                                        "location": specific_database["location"][:-5],
                                        "description": specific_database["card_text"]})
-                else:
-                    continue
             found = False
     return result
 
