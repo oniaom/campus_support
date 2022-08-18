@@ -4,7 +4,7 @@
 Outlook
 {% endblock %}
 
-{%block head %}
+{% block head %}
 <!-- Include our button javascript -->
 <script src="{{ url_for('static', filename='js/button_text_changer.js') }}"></script>
 {% endblock %}
@@ -50,6 +50,5 @@ Outlook
     </li>
     {% endfor %}
 </ul>
-
 
 {% endblock %}
