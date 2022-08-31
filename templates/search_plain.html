@@ -1,9 +1,9 @@
 {% for item in items %}
-<tr>
+<tr style="color: white; " >
     <td>{{ item.card_title }}</td>
     <td>{{ item.description}}</td>
-    <td>
-        <a href="{{ item.location }}">{{ item.location }}</a>
+    <td >
+        <a href="{{ item.location }}" style="color: red;">Click Here!</a>
     </td>
 </tr>
 {% endfor %}

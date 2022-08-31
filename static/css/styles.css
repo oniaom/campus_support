@@ -92,33 +92,34 @@ moving all the common issues to the left
 Animation for the "click here for more help" button
 */
 #custom_search_button {
-    background-color: white;
+    
     -webkit-border-radius: 60px;
     border-radius: 60px;
      cursor: pointer;
     display: inline-block;
     font-family: sans-serif;
     font-size: 20px;
-    text-decoration-color:  white ;
-    padding: 5px 15px;
+    
     text-align: center;
     margin-left: 15px;
     width:max-content;
     height: auto;
+    color: #2cffff !important;
 
   }
   @keyframes glowing {
     0% {
       border-color: #5f9ea0;
-      box-shadow: 0 0 5px #5f9ea0;
+     /* box-shadow: 0 0 0px #5f9ea0; */
     }
     50% {
       border-color: #31dbe1;
-      box-shadow: 0 0 20px #31dbe1;
+      /*box-shadow: 0 0 20px #31dbe1;*/
+      text-shadow:2px 2px 30px yellowgreen;
     }
     100% {
       border-color: #5f9ea0;
-      box-shadow: 0 0 5px #5f9ea0;
+     /* box-shadow: 0 0 0px #5f9ea0; */
     }
   }
   #custom_search_button {
@@ -138,6 +139,16 @@ Animation for the "click here for more help" button
     color: whitesmoke;
     font-family: sans-serif;
 
+  }
+
+  .list-inline-item{
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+  }
+
+  .list-inline-item:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40);
   }
 
 
