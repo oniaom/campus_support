@@ -1,65 +1,84 @@
  body {
     width: 100%;
     height:100%;
-    background-color: #21252b ;
-    font-family: sans-serif;
+    background-color: #305F72 ;
+    font-family: VirtuousSLab;
 
   }
   
 
-
+/*HOME PAGE TITLE DESIGN START*/
 .title {
     font-weight: bold;
     text-align: center;
-     color:#2cffff;
-     font-family: sans-serif;
+     color:#FCD0BA;
+     font-family: VirtuousSLab;
+}
+/*HOME PAGE TITLE DESIGN END*/
 
+/* custom font start */
+@font-face {
+  font-family: 'VirtuousSLab';
+  src: url('Fonts/VirtuousSLab/Virtuous-Slab Bold.otf');
+  src: url('Fonts/VirtuousSLab/Virtuous-Slab Hairline.otf');
+  src: url('Fonts/VirtuousSLab/Virtuous-Slab Italic.otf');
+  src: url('Fonts/VirtuousSLab/Virtuous-Slab Thin.otf');
+  src: url('Fonts/VirtuousSLab/Virtuous-Slab.eot');
+  font-weight: Thin;
+  font-style: normal;
 
 }
+/* custom font end */
 
+
+/*HOME PAGE SUBTITLE DESIGN START*/
 .subtitle {
     font-weight: bold;
     text-align: center;
-    color:#0aa7a7;
-    font-family: sans-serif;
-
+    color:#FEFAD4;
+    font-family: VirtuousSLab;
 }
+/*HOME PAGE SUBTITLE DESIGN START*/
 
+/*SEARCH BOX2 FORM DESIGN START*/
 .centered
 {
     text-align: center;
-    font-family: sans-serif;
-
+    font-family: VirtuousSLab;
 }
+/*SEARCH BOX2 FORM DESIGN END*/
 
 
+/*HOME PAGE LEFT NAVBAR DESIGN START*/
 .navbar_left
 {
     margin-left: 2vw;
-    font-family: sans-serif;
-
-  
+    font-family: VirtuousSLab;
 }
+/*HOME PAGE LEFT NAVBAR DESIGN END*/
 
+/*HOME PAGE RIGHT NAVBAR DESIGN START*/
 .navbar_right {
     width: 100vw;
     margin: auto;
-    font-family: sans-serif;
-
+    font-family: VirtuousSLab;
 }
+/*HOME PAGE RIGHT NAVBAR DESIGN END*/
 
+/*HOME PAGE  NAV DESIGN START*/
 .navigation_decoration {
     text-decoration: none;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: VirtuousSLab;
     color: white;
 }
+/*HOME PAGE  NAV DESIGN end*/
 
 .accordion_centered
 {
     width: 50vw; 
     margin:auto;
-    font-family: sans-serif;
+    font-family: VirtuousSLab;
 
 }
 
@@ -67,80 +86,66 @@
 {
     width: 20vw; 
     margin:auto;
-    font-family: sans-serif;
+    font-family: VirtuousSLab;
 
 }
 
 .search_button {
     margin: auto;
-    font-family: sans-serif;
+    font-family: VirtuousSLab;
 
 }
 
 
 /*
-moving all the common issues to the left 
+all the common issues list dec
 */
-
 .all_common_issues{
-  margin-left: 0;
-  font-family: sans-serif;
+  font-family: VirtuousSLab;
 
 }
 
-/*
-Animation for the "click here for more help" button
-*/
-#custom_search_button {
-    
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-     cursor: pointer;
-    display: inline-block;
-    font-family: sans-serif;
-    font-size: 20px;
-    
+/*HOME PAGE SEARCH BUTTON DESIGN START*/
+  #custom_search_button
+  {
+    font-family: VirtuousSLab;
+    font-weight: bolder;
+    font-size: x-large;
     text-align: center;
-    margin-left: 15px;
     width:max-content;
     height: auto;
-    color: #2cffff !important;
-
-  }
-  @keyframes glowing {
-    0% {
-      border-color: #5f9ea0;
-     /* box-shadow: 0 0 0px #5f9ea0; */
-    }
-    50% {
-      border-color: #31dbe1;
-      /*box-shadow: 0 0 20px #31dbe1;*/
-      text-shadow:2px 2px 30px yellowgreen;
-    }
-    100% {
-      border-color: #5f9ea0;
-     /* box-shadow: 0 0 0px #5f9ea0; */
-    }
-  }
-  #custom_search_button {
-    animation: glowing 2s infinite;
-  }
-
-
-  #q{
-    border-radius: 60px;
-    background: none;
-    border-color: whitesmoke;
-    font-family: sans-serif;
-
+    background-image:repeating-linear-gradient(
+      -225deg,
+      #8FB9A8 29%,
+       #FEFAD4 58%,
+       #FCD0BA 69%,
+      #ffffff 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 40px auto;
+    color: #fff;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1s linear infinite;
+    display: inline-block;
+    
   }
   
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: whitesmoke;
-    font-family: sans-serif;
-
+  @keyframes textclip {
+    to {
+      background-position: 20% center;
+      
+    }
   }
+/*HOME PAGE SEARCH BUTTON DESIGN END*/
 
+
+
+
+/*img grey on hover*/
   .list-inline-item{
     opacity: 1.0;
     filter: alpha(opacity=100);
@@ -152,4 +157,75 @@ Animation for the "click here for more help" button
   }
 
 
+  /*home page nav items decoration start */
+  #navlink1,#navlink2, #navlink0{
+  color: #8FB9A8 !important; 
+  font-size:x-large; 
+   font-family: VirtuousSLab;
+   margin-right: 15px;
+   cursor: pointer;
+   font-weight: bolder;
+
+  }
+
+
+/*shine animation of navbar */
+#navlink1:hover,#navlink2:hover, #custom_search_button:hover, #navlink0:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+
+   
+  }
   
+  @keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
+  }
+
+ /*home page nav items decoration end */
+
+
+/*search bar animation start*/
+/*SEARC ENGINE DESIGN START */
+#q{
+  border-radius: 60px;
+  background: none;
+  border-color: whitesmoke;
+  font-family: VirtuousSLab;
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
+  font-family: VirtuousSLab;
+
+}
+/*SEARC ENGINE DESIGN END */
+  #q{   
+    margin: 0;
+    position: relative;
+    top: 50%;
+    margin-left: 50%;
+    margin-right: 50%;
+    border-radius: 60px;
+    transform: translate(-50%, -50%) ;
+    color: white !important;
+}
+
+  input[type=text] {
+     width: 25%;
+     -webkit-transition: width 800ms ease-in-out;
+     transition: width 800ms ease-in-out;
+  }
+  /* When the input field gets focus,
+       change its width */
+  input[type=text]:focus {
+    width: 50%;
+  }
+  /*search bar animation end*/
