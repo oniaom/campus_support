@@ -1,26 +1,15 @@
 from flask import Flask, render_template, request, redirect
-import sqlite3
+from sqlite_lib import SQL
+import helpers
 
 app = Flask(__name__)
-
-
-def open_specific_database(db_name: str, query: str) -> list:
-    # Open database
-    database = sqlite3.connect(f"database/{db_name}")
-    database.row_factory = sqlite3.Row
-
-    # Get the items and convert them to dict
-    cursor = database.cursor()
-    cursor.execute(f"SELECT * FROM {query}")
-
-    # Return the result
-    return [dict(row) for row in cursor.fetchall()]
 
 
 @app.route("/")
 def index():
     # Home page; Gets its items from database/index.db
-    items: list = open_specific_database('index.db', "index_contents")
+    database: SQL = SQL("index.db")
+    items: list = database.execute("SELECT * FROM index_contents")
     return render_template("index.html", items=items)
 
 
@@ -53,13 +42,6 @@ def search():
     return render_template("search.html")
 
 
-def get_query_with_location(filename: str, query: str, location: str) -> list:
-    result = open_specific_database(filename, query)
-    for item in result:
-        item["location"] = f"{location}"
-    return result
-
-
 def get_items_from_database_with_location() -> list:
     # Open database/* and do "select * from ?"
     # Where ? is found under database_select_index.txt
@@ -71,16 +53,9 @@ def get_items_from_database_with_location() -> list:
             filename, query, location = line.split(' ')
             # Call our function to open the database
             select_queries.append(
-                get_query_with_location(filename, query, location))
+                helpers.get_query_with_location(filename, query, location))
 
     return select_queries
-
-
-def search_current_database(specific_database: dict, search_query: str) -> bool:
-    for value in specific_database.values():
-        if search_query.lower() in str(value).lower():
-            return True
-    return False
 
 
 def get_matching_items_from_database(items: list, search_query: str):
@@ -90,7 +65,7 @@ def get_matching_items_from_database(items: list, search_query: str):
         # If item contains search_query, append
         # Items is a list of a list of a dict still
         for specific_database in all_databases:
-            found = search_current_database(specific_database, search_query)
+            found = helpers.search_current_database(specific_database, search_query)
             if found:
                 result.append({"card_title": specific_database["card_title"],
                                # [:-5] removes the .html
@@ -102,7 +77,7 @@ def get_matching_items_from_database(items: list, search_query: str):
 @app.route('/resources/outlook')
 def outlook():
     # Open database
-    items = open_specific_database("outlook_issues.db", "issues")
+    items = helpers.open_specific_database("outlook_issues.db", "issues")
 
     # Render outlook.html with the items from the database
     return render_template("resources/outlook.html", items=items)
