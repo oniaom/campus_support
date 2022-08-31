@@ -6,25 +6,42 @@ Home
 
 {% block body %}
 <h1 class="title">
+    <br>
     Welcome to the Campus Support Team Knowledgebase!
+
 </h1>
 
-{% include "search_box.html" %}
-
-<ul class=" list-inline title">
-    {% for item in items %}
-    <li class="list-inline-item">
-        <a href="{{  url_for(item.href) }}">
-            <img
-                src="{{ url_for('static', filename= item.image ) }}"
-                alt="{{ item.alt }}">
-        </a>
+<body>
+    <h4 class="subtitle">
         <br>
-        <a class="navigation_decoration" href="{{ url_for(item.href) }}">
-            {{ item.title }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+        Below you will find some of the most common Issues
+    </h4>
+
+    <br>
+    <br>
+
+<div class="all_common_issues">
+    <ul class="list-inline title">
+        {% for item in items %}
+        <li class="list-inline-item" style="display:inline">
+            <a href="{{  url_for(item.href) }}">
+                <img
+                    src="{{ url_for('static', filename= item.image ) }}"
+                    alt="{{ item.alt }}" style="border-radius: 60px;background: none; width: 150px;  
+                    height: 150px; ">
+            </a>
+            <br>
+          
+            <a class="navigation_decoration" href="{{ url_for(item.href) }}" >
+                {{ item.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+</div>
+</body>
+
+
 
 {% endblock %}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <link rel="stylesheet" href="style_for_search_box2.css">
+</head>
+  
+<body>
+    <br>
+    <br>
+      
+    <!-- input tag -->
+    <input id="searchbar" onkeyup="search_guide()" type="text"
+        name="search" placeholder="Search for help..">
+
+    
+      
+    <!-- ordered list -->
+    <ol id='list'>
+        <li class="guides">MFA</li>
+        <li class="guides">AUTH</li>
+        <li class="guides">OUTLOOK</li>
+        <li class="guides">BANNER</li>
+        <li class="guides">BLACKBOARD</li>
+        <li class="guides">MODDLE</li>
+        <li class="guides">REGISTRATIONS</li>
+        <li class="guides">AFM</li>
+        <li class="guides">HTUA</li>
+        <li class="guides">RENNAB</li>
+    </ol>
+      
+    <script>
+        function search_guide() {
+        let input = document.getElementById('searchbar').value
+        input=input.toLowerCase();
+        let x = document.getElementsByClassName('guides');
+          
+        for (i = 0; i < x.length; i++) { 
+            if (!x[i].innerHTML.toLowerCase().startsWith(input)) {
+                x[i].style.display="none";
+            }
+            else {
+                x[i].style.display="list-item";                 
+            }
+        }
+    }
+    </script>
+</body>
+  
+</html>
+
+<style>
+    #searchbar{   
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    border-radius: 60px;
+    transform: translate(-50%, -50%) ;
+    
+}
+
+
+  
+
+  input[type=text] {
+     width: 25%;
+     -webkit-transition: width 0.15s ease-in-out;
+     transition: width 0.15s ease-in-out;
+  }
+
+  /* When the input field gets focus,
+       change its width to 100% */
+  input[type=text]:focus {
+    width: 50%;
+  }
+
+ #list{
+   font-size:  1.5em;
+   margin-left: 90px;
+  }
+
+.animals{
+  display: list-item;    
+ } 
+
+ ::placeholder{
+    color: black;
+ }
+</style>
+

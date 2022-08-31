@@ -2,6 +2,7 @@
 
 <!-- Search Box -->
 <form class="centered" action="/search">
+    <br>
     {% if override is defined %}
     <input type="text" name="q" id="q" value="{{ override }}" autofocus autocomplete="off">
 
@@ -13,10 +14,15 @@
     </script>
     
     {% else %} 
+    <!-- 
+        why id==q????
+     -->
     <input type="text" name="q" id="q" placeholder="Search for help" autofocus autocomplete="off">
     {% endif %}
     
+    <!-- useless
     <input type="submit" value="Search">
+    -->
 </form>
 <!-- End of Search Box -->
 
