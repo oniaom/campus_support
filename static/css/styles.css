@@ -1,19 +1,24 @@
- body {
-    width: 100%;
-    height:100%;
-    background-color: #305F72 ;
-    font-family: VirtuousSLab;
+/* I don't agree with this font ;(, but this is a way to prevent typing this on every class */
+* {
+  font-family: VirtuousSLab;
 
-  }
-  
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #305F72;
+
+}
+
 
 /*HOME PAGE TITLE DESIGN START*/
 .title {
-    font-weight: bold;
-    text-align: center;
-     color:#FCD0BA;
-     font-family: VirtuousSLab;
+  font-weight: bold;
+  text-align: center;
+  color: #FCD0BA;
 }
+
 /*HOME PAGE TITLE DESIGN END*/
 
 /* custom font start */
@@ -28,71 +33,65 @@
   font-style: normal;
 
 }
+
 /* custom font end */
 
 
 /*HOME PAGE SUBTITLE DESIGN START*/
 .subtitle {
-    font-weight: bold;
-    text-align: center;
-    color:#FEFAD4;
-    font-family: VirtuousSLab;
+  font-weight: bold;
+  text-align: center;
+  color: #FEFAD4;
 }
+
 /*HOME PAGE SUBTITLE DESIGN START*/
 
 /*SEARCH BOX2 FORM DESIGN START*/
-.centered
-{
-    text-align: center;
-    font-family: VirtuousSLab;
+.centered {
+  text-align: center;
 }
+
 /*SEARCH BOX2 FORM DESIGN END*/
 
 
 /*HOME PAGE LEFT NAVBAR DESIGN START*/
-.navbar_left
-{
-    margin-left: 2vw;
-    font-family: VirtuousSLab;
+.navbar_left {
+  margin-left: 2vw;
 }
+
 /*HOME PAGE LEFT NAVBAR DESIGN END*/
 
 /*HOME PAGE RIGHT NAVBAR DESIGN START*/
 .navbar_right {
-    width: 100vw;
-    margin: auto;
-    font-family: VirtuousSLab;
+  width: 100vw;
+  margin: auto;
 }
+
 /*HOME PAGE RIGHT NAVBAR DESIGN END*/
 
 /*HOME PAGE  NAV DESIGN START*/
 .navigation_decoration {
-    text-decoration: none;
-    font-weight: bold;
-    font-family: VirtuousSLab;
-    color: white;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
 }
+
 /*HOME PAGE  NAV DESIGN end*/
 
-.accordion_centered
-{
-    width: 50vw; 
-    margin:auto;
-    font-family: VirtuousSLab;
+.accordion_centered {
+  width: 50vw;
+  margin: auto;
 
 }
 
-.list_centered
-{
-    width: 20vw; 
-    margin:auto;
-    font-family: VirtuousSLab;
+.list_centered {
+  width: 20vw;
+  margin: auto;
 
 }
 
 .search_button {
-    margin: auto;
-    font-family: VirtuousSLab;
+  margin: auto;
 
 }
 
@@ -100,132 +99,133 @@
 /*
 all the common issues list dec
 */
-.all_common_issues{
-  font-family: VirtuousSLab;
+.all_common_issues {
+  /*font-family: VirtuousSLab;*/
 
 }
 
 /*HOME PAGE SEARCH BUTTON DESIGN START*/
-  #custom_search_button
-  {
-    font-family: VirtuousSLab;
-    font-weight: bolder;
-    font-size: x-large;
-    text-align: center;
-    width:max-content;
-    height: auto;
-    background-image:repeating-linear-gradient(
-      -225deg,
+#custom_search_button {
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: center;
+  width: max-content;
+  height: auto;
+  background-image: repeating-linear-gradient(-225deg,
       #8FB9A8 29%,
-       #FEFAD4 58%,
-       #FCD0BA 69%,
-      #ffffff 100%
-    );
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 40px auto;
-    color: #fff;
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 1s linear infinite;
-    display: inline-block;
-    
+      #FEFAD4 58%,
+      #FCD0BA 69%,
+      #ffffff 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 40px auto;
+  color: #fff;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 1s linear infinite;
+  display: inline-block;
+
+}
+
+@keyframes textclip {
+  to {
+    background-position: 20% center;
+
   }
-  
-  @keyframes textclip {
-    to {
-      background-position: 20% center;
-      
-    }
-  }
+}
+
 /*HOME PAGE SEARCH BUTTON DESIGN END*/
 
 
 
 
 /*img grey on hover*/
-  .list-inline-item{
-    opacity: 1.0;
-    filter: alpha(opacity=100);
-  }
+.list-inline-item {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
 
-  .list-inline-item:hover{
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-  }
+.list-inline-item:hover {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
 
 
-  /*home page nav items decoration start */
-  #navlink1,#navlink2, #navlink0{
-  color: #8FB9A8 !important; 
-  font-size:x-large; 
-   font-family: VirtuousSLab;
-   margin-right: 15px;
-   cursor: pointer;
-   font-weight: bolder;
+/*home page nav items decoration start */
+#navlink1,
+#navlink2,
+#navlink0 {
+  color: #8FB9A8 !important;
+  font-size: x-large;
+  margin-right: 15px;
+  cursor: pointer;
+  font-weight: bolder;
 
-  }
+}
 
 
 /*shine animation of navbar */
-#navlink1:hover,#navlink2:hover, #custom_search_button:hover, #navlink0:hover {
-    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
-    -webkit-mask-size: 200%;
-    animation: shine 2s infinite;
+#navlink1:hover,
+#navlink2:hover,
+#custom_search_button:hover,
+#navlink0:hover {
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .6) 30%, #000 50%, rgba(0, 0, 0, .6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
 
-   
-  }
-  
-  @keyframes shine {
-    from {
-      -webkit-mask-position: 150%;
-    }
-    
-    to {
-      -webkit-mask-position: -50%;
-    }
+
+}
+
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
   }
 
- /*home page nav items decoration end */
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+
+/*home page nav items decoration end */
 
 
 /*search bar animation start*/
 /*SEARC ENGINE DESIGN START */
-#q{
+#q {
   border-radius: 60px;
   background: none;
   border-color: whitesmoke;
-  font-family: VirtuousSLab;
-
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: whitesmoke;
-  font-family: VirtuousSLab;
-
 }
+
 /*SEARC ENGINE DESIGN END */
-  #q{   
-    margin: 0;
-    position: relative;
-    top: 50%;
-    margin-left: 50%;
-    margin-right: 50%;
-    border-radius: 60px;
-    transform: translate(-50%, -50%) ;
-    color: white !important;
+#q {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  margin-left: 50%;
+  margin-right: 50%;
+  border-radius: 60px;
+  transform: translate(-50%, -50%);
+  color: white !important;
 }
 
-  input[type=text] {
-     width: 25%;
-     -webkit-transition: width 800ms ease-in-out;
-     transition: width 800ms ease-in-out;
-  }
-  /* When the input field gets focus,
+input[type=text] {
+  width: 25%;
+  -webkit-transition: width 800ms ease-in-out;
+  transition: width 800ms ease-in-out;
+}
+
+/* When the input field gets focus,
        change its width */
-  input[type=text]:focus {
-    width: 50%;
-  }
-  /*search bar animation end*/
+input[type=text]:focus {
+  width: 50%;
+}
+
+/*search bar animation end*/
