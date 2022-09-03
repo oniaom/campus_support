@@ -1,1 +1,1 @@
-outlook_issues.db issues resources/outlook.html
+database/outlook_issues.db issues resources/outlook

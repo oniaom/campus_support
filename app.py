@@ -4,12 +4,19 @@ import helpers
 
 app = Flask(__name__)
 
+def _debug_print(args):
+    import sys
+    print(args, file=sys.stderr)
 
 @app.route("/")
 def index():
     # Home page; Gets its items from database/index.db
     database: SQL = SQL("database/index.db")
-    items: list = database.execute("SELECT * FROM index_contents")
+
+    # Get the index contents table name and query it
+    table_name: str = database.get_tables()[0]
+    items: list = database.execute(f"SELECT * FROM {table_name}")
+    
     return render_template("index.html", items=items)
 
 
@@ -22,6 +29,10 @@ def search():
 
     # Assuming that the user searched for something
     if search_query is not None and search_query.strip() != '':
+        # TODO: FIXME: this monstrocity.
+        # Potentially rewrite the whole search...
+        # Won't work for now because i changed get_matching..._database
+
         # Get stuff from our databases
         items: list = get_items_from_database_with_location()
         # filter based on user search query
@@ -50,10 +61,10 @@ def get_items_from_database_with_location() -> list:
         # For each line, we have filename {space} database {space} html_location
         for line in index:
             # Separate by space
-            filename, query, location = line.split(' ')
+            filename, table_name, location = line.split(' ')
             # Call our function to open the database
             select_queries.append(
-                helpers.get_query_with_location(filename, query, location))
+                helpers.get_query_with_location(filename, table_name, location))
 
     return select_queries
 
@@ -68,8 +79,7 @@ def get_matching_items_from_database(items: list, search_query: str):
             found = helpers.search_current_database(specific_database, search_query)
             if found:
                 result.append({"card_title": specific_database["card_title"],
-                               # [:-5] removes the .html
-                               "location": specific_database["location"][:-5],
+                               "location": specific_database["location"],
                                "description": specific_database["card_text"]})
     return result
 
@@ -77,8 +87,9 @@ def get_matching_items_from_database(items: list, search_query: str):
 @app.route('/resources/outlook')
 def outlook():
     # Open database
-    items = helpers.open_specific_database("outlook_issues.db", "issues")
-
+    db = SQL("database/outlook_issues.db")
+    items = db.execute("SELECT * FROM issues")
+    
     # Render outlook.html with the items from the database
     return render_template("resources/outlook.html", items=items)
 
