@@ -4,11 +4,11 @@
 <form class="centered" action="/search">
     <br>
     {% if override is defined %}
-     <!-- input tag -->
-     <input id="q" onkeyup="search_guide()" type="text"
-     name="q" placeholder="Search for help.." value="{{ override }}" autofocus autocomplete="off">
+    <!-- input tag -->
+    <input id="q" onkeyup="search_guide()" type="text" name="q" placeholder="Search for help.." value="{{ override }}"
+        autofocus autocomplete="off">
 
-</script>
+    </script>
 
     <!-- Set cursor to the end -->
     <script>
@@ -16,14 +16,14 @@
         const length = box.value.length;
         box.setSelectionRange(length, length);
     </script>
-    
-    {% else %} 
-    
-    <input id="q" onkeyup="search_guide()" type="text"
-     name="q" placeholder="Search for help.."  autofocus autocomplete="off">
+
+    {% else %}
+
+    <input id="q" onkeyup="search_guide()" type="text" name="q" placeholder="Search for help.." autofocus
+        autocomplete="off">
     {% endif %}
 
 </form>
 
-  
+
 </html>

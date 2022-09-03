@@ -1,7 +1,7 @@
-/* I don't agree with this font ;(, but this is a way to prevent typing this on every class */
+/* I don't agree with this font ;(
+   but this is a way to prevent typing this on every class */
 * {
-  font-family: VirtuousSLab;
-
+  font-family: MerriWeather;
 }
 
 body {
@@ -17,21 +17,15 @@ body {
   font-weight: bold;
   text-align: center;
   color: #FCD0BA;
+  margin-top: 5%;
 }
 
 /*HOME PAGE TITLE DESIGN END*/
 
 /* custom font start */
 @font-face {
-  font-family: 'VirtuousSLab';
-  src: url('Fonts/VirtuousSLab/Virtuous-Slab Bold.otf');
-  src: url('Fonts/VirtuousSLab/Virtuous-Slab Hairline.otf');
-  src: url('Fonts/VirtuousSLab/Virtuous-Slab Italic.otf');
-  src: url('Fonts/VirtuousSLab/Virtuous-Slab Thin.otf');
-  src: url('Fonts/VirtuousSLab/Virtuous-Slab.eot');
-  font-weight: Thin;
-  font-style: normal;
-
+  font-family: 'merriweather';
+  src: url('/static/fonts/merriweather.regular.ttf');
 }
 
 /* custom font end */
@@ -69,14 +63,14 @@ body {
 
 /*HOME PAGE RIGHT NAVBAR DESIGN END*/
 
-/*HOME PAGE  NAV DESIGN START*/
+/*HOME PAGE NAV DESIGN START*/
 .navigation_decoration {
   text-decoration: none;
   font-weight: bold;
   color: white;
 }
 
-/*HOME PAGE  NAV DESIGN end*/
+/*HOME PAGE NAV DESIGN end*/
 
 .accordion_centered {
   width: 50vw;
@@ -97,12 +91,10 @@ body {
 
 
 /*
-all the common issues list dec
+all the common issues list dec 
+(removed for now)
 */
-.all_common_issues {
-  /*font-family: VirtuousSLab;*/
 
-}
 
 /*HOME PAGE SEARCH BUTTON DESIGN START*/
 #custom_search_button {
@@ -145,6 +137,7 @@ all the common issues list dec
 .list-inline-item {
   opacity: 1.0;
   filter: alpha(opacity=100);
+  display: inline;
 }
 
 .list-inline-item:hover {
@@ -152,6 +145,17 @@ all the common issues list dec
   filter: alpha(opacity=40);
 }
 
+.list-inline-item-pictures {
+  border-radius: 100px;
+  background: none;
+  width: 150px;
+  height: 150px;
+}
+
+.centered-list-item {
+  text-align: center;
+  display: inline-block;
+}
 
 /*home page nav items decoration start */
 #navlink1,
@@ -229,3 +233,22 @@ input[type=text]:focus {
 }
 
 /*search bar animation end*/
+
+/* Search results styling */
+
+.search-table {
+  color: white;
+}
+
+.search-link {
+  color: #ff8080;
+  font-weight: bold;
+}
+
+.search-link:hover
+{
+  color: #ff8080;
+  font-weight: bold;
+}
+
+/* End of serach results styling */
