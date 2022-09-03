@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     # Home page; Gets its items from database/index.db
-    database: SQL = SQL("index.db")
+    database: SQL = SQL("database/index.db")
     items: list = database.execute("SELECT * FROM index_contents")
     return render_template("index.html", items=items)
 
